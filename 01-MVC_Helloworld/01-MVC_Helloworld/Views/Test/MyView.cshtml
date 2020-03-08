@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+@using _01_MVC_Helloworld.ViewModels
+@model EmployeeListViewModel
+@*@model  _01_MVC_Helloworld.Models.Employee*@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyView</title>
+</head>
+<body>
+    <div> 
+        <p>Welcome to MVC 5 Step by Step learning</p>elcome to MVC 5 Step by Step learning
+    </div>
+    <div>
+        @*什么是 Razor？
+        Razor 是一种标记语法，可以让您将基于服务器的代码（Visual Basic 和 C#）嵌入到网页中。
+
+        基于服务器的代码可以在网页传送给浏览器时，创建动态 Web 内容。当一个网页被请求时，服务器在返回页面给浏览器之前先执行页面中的基于服务器的代码。通过服务器的运行，代码能执行复杂的任务，比如进入数据库。
+
+        Razor 是基于 ASP.NET 的，是为创建 Web 应用程序而设计的。它具有传统 ASP.NET 的功能，但更容易使用并且更容易学习。*@
+        @*@{
+            _01_MVC_Helloworld.Models.Employee emp = (_01_MVC_Helloworld.Models.Employee)ViewData["Employee"];
+        }*@
+        
+        @*<b>Employee Details </b><br />
+        Employee Name : @Model.FirstName@Model.LastName <br />
+        @if(Model.Salary>15000)
+        {
+            <span style="background-color:yellow">
+                Employee Salary: @Model.Salary.ToString("C")
+            </span>
+        }
+        else
+        {
+            <span style="background-color:green">
+                Employee Salary: @Model.Salary.ToString("C")
+             </span>
+         }*@
+
+
+        @*//ViewModel*@
+        @*Hellow @Model.UserName
+        <b>Employee Details </b><br />
+        Employee.Name : @Model.EmployeeName <br />
+        <span style="background-color:@Model.SalaryColor">
+         Employee Salary: @Model.Salary
+         </span>*@
+
+         @*显示所有的Employee*@
+        <h1>Hello @Model.UserName</h1>
+        <hr />
+        <div>
+            <table>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Salary</th>
+                </tr>
+                @foreach (EmployeeViewModel item in Model.Employees)
+                {
+                    <tr>
+                        <td>@item.EmployeeName</td>
+                        <td style="background-color:@item.SalaryColor">@item.Salary</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+</div>
+</body>
+</html>
